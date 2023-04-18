@@ -1,0 +1,13 @@
+# create workflow to echo github context when an issue is opened
+name: on-issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  on-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Github Context
+        run: echo "Context info ${{ toJson(github) }}"

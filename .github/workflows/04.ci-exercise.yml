@@ -1,4 +1,4 @@
-name: exercise
+name: ci-exercise
 
 on: workflow_dispatch
 
