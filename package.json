@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts",
+    "build": "rm -rf ./build && tsc",
     "generate:api:types": "graphql-codegen --config codegen.ts"    
   },
   "dependencies": {

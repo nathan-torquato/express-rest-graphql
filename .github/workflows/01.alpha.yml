@@ -1,0 +1,16 @@
+name: alpha
+
+on: workflow_dispatch
+
+jobs:
+  alpha:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: echo "Hello Alpha!"
+      - name: Say something cool
+        run: |
+          echo "First output"
+          echo "Second output"
+      - name: rint goodbye
+        run: echo "Goodbye Alpha!"
