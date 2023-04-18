@@ -1,5 +1,5 @@
 export class BasicService {
-	hello() {
-		return 'Hello GraphQL!!!'
-	}
+  hello() {
+    return 'Hello GraphQL!!!';
+  }
 }

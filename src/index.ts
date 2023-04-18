@@ -1,12 +1,12 @@
-import express from "express";
-import { appRouter } from "./app.router";
-import { buildGraphQLServer } from "./graphql.server";
+import express from 'express';
+import { appRouter } from './app.router';
+import { buildGraphQLServer } from './graphql.server';
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use("/", appRouter);
+app.use('/', appRouter);
 
 const main = async () => {
   try {
