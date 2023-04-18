@@ -1,4 +1,4 @@
-name: Output Info
+name: output context info
 
 on: workflow_dispatch
 
