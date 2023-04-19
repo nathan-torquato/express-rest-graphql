@@ -9,6 +9,8 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    outputs:
+      js_file_name: ${{ steps.set-js-file-name.outputs.JS_FILE_NAME }}
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -24,6 +26,9 @@ jobs:
         run: yarn test
       - name: Build
         run: yarn build
+      - name: Publish JS file name
+        id: set-js-file-name
+        run: echo "JS_FILE_NAME=$(ls dist/*.js)" >> $GITHUB_OUTPUT
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -39,5 +44,7 @@ jobs:
           name: dist
       - name: Output artifact
         run: ls
+      - name: Output JS file name
+        run: echo ${{ needs.setup.outputs.js_file_name }}
       - name: Deploy to production
         run: echo "Deploying to production..."
