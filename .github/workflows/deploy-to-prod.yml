@@ -17,7 +17,7 @@ jobs:
       - name: Print env vars
         run: |
           echo "Project name: ${{ env.PROJECT_NAME }}"
-          echo "API URL: ${{ env.API_URL }}"
+          echo "API URL: $API_URL"
           echo "DB_PASSWORD: ${{ secrets.DB_PASSWORD }}"
   setup:
     runs-on: ubuntu-latest
