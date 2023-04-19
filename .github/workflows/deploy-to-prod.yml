@@ -12,7 +12,7 @@ env:
 jobs:
   log_vars:
     runs-on: ubuntu-latest
-    environment: testing
+    environment: test
     steps:
       - name: Print env vars
         run: |
