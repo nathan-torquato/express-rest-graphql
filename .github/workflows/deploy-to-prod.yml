@@ -10,6 +10,15 @@ env:
   PROJECT_NAME: gha-alpha
 
 jobs:
+  log_vars:
+    runs-on: ubuntu-latest
+    environment: testing
+    steps:
+      - name: Print env vars
+        run: |
+          echo $PROJECT_NAME
+          echo "Project name: ${{ env.PROJECT_NAME }}"
+          echo "DB_PASSWORD: ${{ secrets.DB_PASSWORD }}"
   setup:
     runs-on: ubuntu-latest
     outputs:
