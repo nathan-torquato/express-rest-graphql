@@ -38,6 +38,6 @@ jobs:
         with:
           name: dist
       - name: Output artifact
-        run: ls -la
+        run: ls
       - name: Deploy to production
         run: echo "Deploying to production..."
