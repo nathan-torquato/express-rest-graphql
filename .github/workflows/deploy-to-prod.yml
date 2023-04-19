@@ -33,5 +33,11 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+      - name: Output artifact
+        run: ls -la
       - name: Deploy to production
         run: echo "Deploying to production..."
