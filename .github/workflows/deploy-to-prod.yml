@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - master
-  # workflow_dispatch:
+  workflow_dispatch:
+
+env:
+  PROJECT_NAME: gha-alpha
 
 jobs:
   setup:
@@ -12,6 +15,9 @@ jobs:
     outputs:
       js_file_name: ${{ steps.set-js-file-name.outputs.JS_FILE_NAME }}
     steps:
+      - name: Print project name
+        run: echo $PROJECT_NAME
+
       - name: Get code
         uses: actions/checkout@v3
 
