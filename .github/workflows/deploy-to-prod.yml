@@ -15,10 +15,11 @@ jobs:
     outputs:
       js_file_name: ${{ steps.set-js-file-name.outputs.JS_FILE_NAME }}
     steps:
-      - name: Print project name
+      - name: Print env vars
         run: |
           echo $PROJECT_NAME
           echo "Project name: ${{ env.PROJECT_NAME }}"
+          echo "DB_PASSWORD: ${{ secrets.DB_PASSWORD }}"
 
       - name: Get code
         uses: actions/checkout@v3
