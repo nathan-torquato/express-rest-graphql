@@ -13,14 +13,17 @@ jobs:
   log_vars:
     environment: test
     env:
-      API_URL: https://api.example.com
+      API_URL: ${{ env.API_URL }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
     runs-on: ubuntu-latest
     steps:
       - name: Print env vars
         run: |
-          echo "Project name: ${{ env.PROJECT_NAME }}"
-          echo "API URL: ${{ env.API_URL }}"
-          echo "DB_PASSWORD: ${{ secrets.DB_PASSWORD }}"
+          echo "Project name : ${{ env.PROJECT_NAME }}"
+          echo "API_URL      : ${{ env.API_URL }}"
+          echo "DB_HOST      : ${{ env.DB_HOST }}"
+          echo "DB_PASSWORD  : ${{ env.DB_PASSWORD }}"
   setup:
     runs-on: ubuntu-latest
     outputs:
