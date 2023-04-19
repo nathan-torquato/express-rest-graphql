@@ -1,6 +1,12 @@
 name: deploy
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+      - dev* # dev, dev-1, dev-2, etc.
+      - 'feat**' # feat, feat-1, feature/new-api, etc.
+  workflow_dispatch:
 
 jobs:
   test:
