@@ -4,7 +4,6 @@ name: on-issue
 on:
   issues:
     types: [opened]
-  workflow_dispatch:
 
 jobs:
   on-issue:
