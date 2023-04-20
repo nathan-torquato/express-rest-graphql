@@ -24,8 +24,12 @@ jobs:
           echo "API_URL      : ${{ env.API_URL }}"
           echo "DB_HOST      : ${{ env.DB_HOST }}"
           echo "DB_PASSWORD  : ${{ env.DB_PASSWORD }}"
-          ls .
-          node ./scripts/load-secrets.js ${{ toJSON(secrets) }}
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: Print secrets
+        run: node ./scripts/load-secrets.js ${{ toJSON(secrets) }}
+
   setup:
     runs-on: ubuntu-latest
     outputs:
