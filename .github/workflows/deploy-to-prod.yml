@@ -13,7 +13,7 @@ jobs:
   log_vars:
     environment: test
     env:
-      API_URL: ${{ secrets.API_URL }}
+      API_URL: ${{ env.API_URL }}
       DB_HOST: ${{ secrets.DB_HOST }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
     runs-on: ubuntu-latest
