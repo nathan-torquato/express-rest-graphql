@@ -25,7 +25,7 @@ jobs:
           echo "DB_HOST      : ${{ env.DB_HOST }}"
           echo "DB_PASSWORD  : ${{ env.DB_PASSWORD }}"
           pwd
-          node ../../../scripts/load-secrets.js ${{ toJSON(secrets) }}
+          node ../../scripts/load-secrets.js ${{ toJSON(secrets) }}
   setup:
     runs-on: ubuntu-latest
     outputs:
