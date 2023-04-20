@@ -24,7 +24,8 @@ jobs:
           echo "API_URL      : ${{ env.API_URL }}"
           echo "DB_HOST      : ${{ env.DB_HOST }}"
           echo "DB_PASSWORD  : ${{ env.DB_PASSWORD }}"
-          node scripts/load-secrets.js ${{ toJSON(secrets) }}
+          pwd
+          node ../../../scripts/load-secrets.js ${{ toJSON(secrets) }}
   setup:
     runs-on: ubuntu-latest
     outputs:
