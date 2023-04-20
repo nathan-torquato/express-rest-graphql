@@ -24,7 +24,6 @@ jobs:
           echo "API_URL      : ${{ env.API_URL }}"
           echo "DB_HOST      : ${{ env.DB_HOST }}"
           echo "DB_PASSWORD  : ${{ env.DB_PASSWORD }}"
-          echo "Context info ${{ toJson(github) }}"
   setup:
     runs-on: ubuntu-latest
     outputs:
