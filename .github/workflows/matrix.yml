@@ -1,5 +1,5 @@
 # run workflow with matrix strategy on push to master and use node v14, v16, v18
-name: Matrix
+name: the-matrix
 
 on:
   push:
