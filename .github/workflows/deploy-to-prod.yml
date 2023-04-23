@@ -29,7 +29,7 @@ jobs:
 
       - name: Print secrets
         run: |
-          node ./scripts/load-secretsZ.js '${{ toJSON(secrets) }}'
+          node ./scripts/load-secrets.js '${{ toJSON(secrets) }}'
 
   setup:
     runs-on: ubuntu-latest
