@@ -68,7 +68,12 @@ jobs:
         run: yarn lint
 
       - name: Test
+        id: test
         run: yarn test
+
+      - name: Print failed tests report
+        if: failure() && steps.test.outcome == 'failure'
+        run: echo "Tests have failed. Crap 😢"
 
       - name: Build
         run: yarn build
