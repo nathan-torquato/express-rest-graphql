@@ -11,10 +11,16 @@ on:
         description: 'Environment to deploy to'
         required: true
         type: string
+    outputs:
+      result:
+        description: 'Result of the deployment'
+        value: ${{ steps.output-environment.outputs.RESULT }}
 
 jobs:
   deploy-app:
     runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.output-environment.outputs.RESULT }}
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
@@ -26,3 +32,7 @@ jobs:
 
       - name: Deploy to production
         run: echo "Deploying to ${{ inputs.environment }}"
+
+      - name: Output environment
+        id: output-environment
+        run: echo "RESULT=success" >> $GITHUB_OUTPUT

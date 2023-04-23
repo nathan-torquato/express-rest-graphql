@@ -100,5 +100,8 @@ jobs:
     runs-on: ubuntu-latest
     if: failure()
     steps:
+      - name: Print deployment result
+        run: echo "Deployment result -> ${{ needs.deploy.outputs.result }}"
+
       - name: Print github context
         run: echo "${{ toJSON(github) }}"
