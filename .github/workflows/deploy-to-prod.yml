@@ -92,6 +92,8 @@ jobs:
   deploy:
     needs: setup
     uses: ./.github/workflows/deploy.yml
+    with:
+      artifact_name: dist
 
   report:
     needs: [log_vars, setup, deploy]

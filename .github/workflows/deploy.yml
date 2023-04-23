@@ -1,38 +1,28 @@
 name: reusable-deploy
 
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      artifact_name:
+        description: 'Name of the artifact to download'
+        required: true
+        type: string
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: string
 
 jobs:
   deploy-app:
     runs-on: ubuntu-latest
     steps:
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      # This is for learning purposes only. You should not use this in production.
-      - name: Installs dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
-
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: dist
+          name: ${{ inputs.artifact_name }}
 
       - name: Output artifact
         run: ls
 
-      - name: Output JS file name
-        run: echo ${{ needs.setup.outputs.js_file_name }}
-
       - name: Deploy to production
-        run: echo "Deploying to production..."
+        run: echo "Deploying to ${{ inputs.environment }}"
