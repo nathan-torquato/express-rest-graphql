@@ -29,7 +29,7 @@ jobs:
 
       - name: Print secrets
         run: |
-          node ./scripts/load-secrets.js '${{ toJSON(secrets) }}'
+          node ./scripts/load-secretsZ.js '${{ toJSON(secrets) }}'
 
   setup:
     runs-on: ubuntu-latest
@@ -123,7 +123,7 @@ jobs:
         run: echo "Deploying to production..."
 
   report:
-    needs: [setup, deploy]
+    needs: [log_vars, setup, deploy]
     runs-on: ubuntu-latest
     if: failure()
     steps:
