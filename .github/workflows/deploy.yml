@@ -14,7 +14,7 @@ on:
     outputs:
       result:
         description: 'Result of the deployment'
-        value: ${{ steps.output-environment.outputs.RESULT }}
+        value: ${{ bs.deploy-app.outputs.result }}
 
 jobs:
   deploy-app:
