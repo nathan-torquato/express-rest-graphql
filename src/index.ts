@@ -12,7 +12,7 @@ const main = async () => {
   try {
     await buildGraphQLServer(app);
     app.listen(port, () => {
-      console.log(`Example app listening at http://localhost:${port}`);
+      console.log(`Hey Example app listening at http://localhost:${port}`);
     });
   } catch (error) {
     console.error(error);
